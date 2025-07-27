@@ -14,3 +14,24 @@ window.addEventListener("resize", () => {
     }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const fadeInItems = document.querySelectorAll('.fade-in-item');
+
+    const observerOptions = {
+        threshold: 0.2 // Pemicu saat 20% dari item terlihat
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                // Hentikan pengamatan setelah animasi dipicu agar tidak berulang
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    fadeInItems.forEach(item => {
+        observer.observe(item);
+    });
+});

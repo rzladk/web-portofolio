@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+NSW:wght@100..400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+AU+NSW:wght@100..400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
 
 * {
   box-sizing: border-box;
@@ -12,9 +12,10 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background-color: #E3FDFD;
+  background-color: #EFFFFD;
 }
 
+/* Navbar */
 nav {
   padding: 10px 8%;
   display: flex;
@@ -23,7 +24,7 @@ nav {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   z-index: 1;
-  background-color: #71C9CE;
+  background-color: #71c9ce;
 }
 nav .logo {
   display: flex;
@@ -141,6 +142,7 @@ nav ul li a:hover {
   background-color: #f5f5f5;
 }
 
+/* Hero Section */
 .hero-section {
   background-image: url("/images/header.jpg"); /* Ganti dengan nama file gambar Anda */
   background-size: cover; /* Penting agar gambar menutupi seluruh area */
@@ -157,7 +159,6 @@ nav ul li a:hover {
   z-index: 1; /* Pastikan konten di atas overlay */
 }
 
-/* Opsional: Overlay gelap agar teks lebih mudah dibaca */
 .hero-section::before {
   content: "";
   position: absolute;
@@ -188,7 +189,7 @@ nav ul li a:hover {
   font-size: 1.5em; /* Ukuran font untuk subjudul */
   margin-bottom: 20px;
   color: #fff; /* Warna teks subjudul */
-  font-family:"Noto Sans JP", sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
@@ -204,6 +205,158 @@ nav ul li a:hover {
   font-style: normal;
 }
 
+/* --- Typing Animation Styles --- */
+/* Base styles for the animated text */
+.hero-content h1 span,
+.hero-content h2 span,
+.hero-content p span {
+  display: inline-block; /* Essential for width animation */
+  overflow: hidden; /* Hides text outside the animated width */
+  white-space: nowrap; /* Prevents text from wrapping */
+  border-right: 0.15em solid #fff; /* Blinking caret effect */
+  box-sizing: border-box; /* Include padding and border in width */
+  width: 0; /* Set initial width to 0 and apply animation */
+}
+
+/* Specific animations for each line */
+.hero-content h1 span {
+  /* typing animation (duration and steps should match the text length) */
+  animation: typing 3.5s steps(40, end) forwards 0.5s,
+    /* typing animation, starts at 0.5s */ blink-caret 0.75s step-end infinite
+      3.5s; /* caret blinks for 0.75s, starts at 3.5s (end of typing) */
+  animation-delay: 0.5s; /* Delay for typing */
+  /* Adjust blink-caret to only last for a short period after typing, then disappear */
+  animation: typing 3.5s steps(40, end) forwards 0.5s,
+    blink-caret 0.75s step-end 3 4s forwards; /* Blink 3 times, then disappear */
+}
+
+.hero-content h2 span {
+  animation-delay: 4.5s; /* Typing starts after 4.5s */
+  animation: typing 3.5s steps(40, end) forwards 4.5s,
+    blink-caret 0.75s step-end 3 8s forwards;
+}
+
+.hero-content p:nth-of-type(1) span {
+  /* Targeting the first <p> tag */
+  animation-delay: 8.5s;
+  animation: typing 3.5s steps(40, end) forwards 8.5s,
+    blink-caret 0.75s step-end 3 12s forwards;
+}
+
+.hero-content p:nth-of-type(2) span {
+  /* Targeting the second <p> tag */
+  animation-delay: 12.5s;
+  animation: typing 3.5s steps(40, end) forwards 12.5s,
+    blink-caret 0.75s step-end 3 16s forwards;
+}
+
+/* Keyframes for the typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Keyframes for the blinking caret */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #fff;
+  }
+}
+
+/* --- About Me Section --- */
+.about-me-section {
+    padding: 80px 20px;
+    /* background-color: #f9f9f9; */
+    color: #333;
+    text-align: center;
+}
+
+.about-content {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.about-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #333;
+    font-family: "Playwrite AU NSW", cursive;
+    font-weight: 700;
+}
+
+.about-details {
+    display: flex;
+    flex-wrap: wrap; /* Memungkinkan wrap pada layar kecil */
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Jarak antara gambar dan teks */
+}
+
+.about-image {
+    flex-shrink: 0; /* Mencegah gambar menyusut */
+}
+
+.about-image img {
+    width: 250px; /* Ukuran gambar profil */
+    height: 250px;
+    border-radius: 50%; /* Membuat gambar menjadi bulat */
+    object-fit: cover; /* Memastikan gambar mengisi area tanpa terdistorsi */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-text {
+    flex-grow: 1; /* Memungkinkan teks mengisi ruang yang tersedia */
+    max-width: 600px;
+    text-align: left; /* Teks paragraf rata kiri */
+}
+
+.about-text p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    font-family: "Noto Sans JP", sans-serif; /* Font yang berbeda untuk paragraf */
+    font-weight: 400;
+    text-align: justify;
+}
+
+/* --- Animasi Fade-in --- */
+.fade-in-item {
+    opacity: 0; /* Awalnya tidak terlihat */
+    transition: opacity 1s ease-out; /* Transisi yang halus selama 1 detik */
+}
+
+/* Kelas yang ditambahkan oleh JavaScript saat elemen terlihat */
+.fade-in-item.is-visible {
+    opacity: 1;
+}
+
+/* Animasi tunda (delay) untuk setiap item agar muncul berurutan */
+.about-content h2.fade-in-item { transition-delay: 0.1s; }
+.about-image.fade-in-item { transition-delay: 0.3s; }
+.about-text p:nth-of-type(1).fade-in-item { transition-delay: 0.5s; }
+.about-text p:nth-of-type(2).fade-in-item { transition-delay: 0.7s; }
+.about-text p:nth-of-type(3).fade-in-item { transition-delay: 0.9s; }
+
+
+/* Media Queries untuk Responsif */
+@media (max-width: 768px) {
+    .about-details {
+        flex-direction: column; /* Tumpuk gambar dan teks di layar kecil */
+    }
+    .about-text {
+        text-align: center; /* Rata tengah teks di layar kecil */
+    }
+}
+
+/* Responsive */
 @media screen and (max-width: 790px) {
   .hamburger {
     display: block;
@@ -216,5 +369,11 @@ nav ul li a:hover {
   }
   header h1 {
     font-size: 1.5rem;
+  }
+  .about-details {
+    flex-direction: column; /* Tumpuk gambar dan teks di layar kecil */
+  }
+  .about-text {
+    text-align: center; /* Rata tengah teks di layar kecil */
   }
 }
