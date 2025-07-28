@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+AU+NSW:wght@100..400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap");
 
 * {
   box-sizing: border-box;
@@ -12,7 +13,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background-color: #EFFFFD;
+  background-color: #effffd;
 }
 
 /* Navbar */
@@ -216,38 +217,11 @@ nav ul li a:hover {
   border-right: 0.15em solid #fff; /* Blinking caret effect */
   box-sizing: border-box; /* Include padding and border in width */
   width: 0; /* Set initial width to 0 and apply animation */
-}
 
-/* Specific animations for each line */
-.hero-content h1 span {
-  /* typing animation (duration and steps should match the text length) */
-  animation: typing 3.5s steps(40, end) forwards 0.5s,
-    /* typing animation, starts at 0.5s */ blink-caret 0.75s step-end infinite
-      3.5s; /* caret blinks for 0.75s, starts at 3.5s (end of typing) */
-  animation-delay: 0.5s; /* Delay for typing */
-  /* Adjust blink-caret to only last for a short period after typing, then disappear */
-  animation: typing 3.5s steps(40, end) forwards 0.5s,
-    blink-caret 0.75s step-end 3 4s forwards; /* Blink 3 times, then disappear */
-}
-
-.hero-content h2 span {
-  animation-delay: 4.5s; /* Typing starts after 4.5s */
-  animation: typing 3.5s steps(40, end) forwards 4.5s,
-    blink-caret 0.75s step-end 3 8s forwards;
-}
-
-.hero-content p:nth-of-type(1) span {
-  /* Targeting the first <p> tag */
-  animation-delay: 8.5s;
-  animation: typing 3.5s steps(40, end) forwards 8.5s,
-    blink-caret 0.75s step-end 3 12s forwards;
-}
-
-.hero-content p:nth-of-type(2) span {
-  /* Targeting the second <p> tag */
-  animation-delay: 12.5s;
-  animation: typing 3.5s steps(40, end) forwards 12.5s,
-    blink-caret 0.75s step-end 3 16s forwards;
+  /* Apply typing and blink-caret animations simultaneously to all */
+  animation: typing 3.5s steps(40, end) forwards,
+    blink-caret 0.75s step-end 3 forwards 3.5s; /* Blink 3 times, then disappear after 3.5s (end of typing) */
+  /* If you have different text lengths, adjust the 3.5s (typing duration) accordingly for blink-caret delay */
 }
 
 /* Keyframes for the typing animation */
@@ -273,87 +247,247 @@ nav ul li a:hover {
 
 /* --- About Me Section --- */
 .about-me-section {
-    padding: 80px 20px;
-    /* background-color: #f9f9f9; */
-    color: #333;
-    text-align: center;
+  padding: 80px 20px;
+  /* background-color: #f9f9f9; */
+  color: #333;
+  text-align: center;
 }
 
 .about-content {
-    max-width: 960px;
-    margin: 0 auto;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .about-content h2 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-    color: #333;
-    font-family: "Playwrite AU NSW", cursive;
-    font-weight: 700;
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  color: #333;
+  font-family: "Playwrite AU NSW", cursive;
+  font-weight: 700;
 }
 
 .about-details {
-    display: flex;
-    flex-wrap: wrap; /* Memungkinkan wrap pada layar kecil */
-    justify-content: center;
-    align-items: center;
-    gap: 40px; /* Jarak antara gambar dan teks */
+  display: flex;
+  flex-wrap: wrap; /* Memungkinkan wrap pada layar kecil */
+  justify-content: center;
+  align-items: center;
+  gap: 40px; /* Jarak antara gambar dan teks */
 }
 
 .about-image {
-    flex-shrink: 0; /* Mencegah gambar menyusut */
+  flex-shrink: 0; /* Mencegah gambar menyusut */
 }
 
 .about-image img {
-    width: 250px; /* Ukuran gambar profil */
-    height: 250px;
-    border-radius: 50%; /* Membuat gambar menjadi bulat */
-    object-fit: cover; /* Memastikan gambar mengisi area tanpa terdistorsi */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 250px; /* Ukuran gambar profil */
+  height: 250px;
+  border-radius: 50%; /* Membuat gambar menjadi bulat */
+  object-fit: cover; /* Memastikan gambar mengisi area tanpa terdistorsi */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .about-text {
-    flex-grow: 1; /* Memungkinkan teks mengisi ruang yang tersedia */
-    max-width: 600px;
-    text-align: left; /* Teks paragraf rata kiri */
+  flex-grow: 1; /* Memungkinkan teks mengisi ruang yang tersedia */
+  max-width: 600px;
+  text-align: left; /* Teks paragraf rata kiri */
 }
 
 .about-text p {
-    font-size: 1.1em;
-    line-height: 1.7;
-    margin-bottom: 15px;
-    font-family: "Noto Sans JP", sans-serif; /* Font yang berbeda untuk paragraf */
-    font-weight: 400;
-    text-align: justify;
+  font-size: 1.1em;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  font-family: "Noto Sans JP", sans-serif; /* Font yang berbeda untuk paragraf */
+  font-weight: 400;
+  text-align: justify;
 }
 
 /* --- Animasi Fade-in --- */
 .fade-in-item {
-    opacity: 0; /* Awalnya tidak terlihat */
-    transition: opacity 1s ease-out; /* Transisi yang halus selama 1 detik */
+  opacity: 0; /* Awalnya tidak terlihat */
+  transition: opacity 1s ease-out; /* Transisi yang halus selama 1 detik */
 }
 
 /* Kelas yang ditambahkan oleh JavaScript saat elemen terlihat */
 .fade-in-item.is-visible {
-    opacity: 1;
+  opacity: 1;
 }
 
 /* Animasi tunda (delay) untuk setiap item agar muncul berurutan */
-.about-content h2.fade-in-item { transition-delay: 0.1s; }
-.about-image.fade-in-item { transition-delay: 0.3s; }
-.about-text p:nth-of-type(1).fade-in-item { transition-delay: 0.5s; }
-.about-text p:nth-of-type(2).fade-in-item { transition-delay: 0.7s; }
-.about-text p:nth-of-type(3).fade-in-item { transition-delay: 0.9s; }
+.about-content h2.fade-in-item {
+  transition-delay: 0.1s;
+}
+.about-image.fade-in-item {
+  transition-delay: 0.3s;
+}
+.about-text p:nth-of-type(1).fade-in-item {
+  transition-delay: 0.5s;
+}
+.about-text p:nth-of-type(2).fade-in-item {
+  transition-delay: 0.7s;
+}
+.about-text p:nth-of-type(3).fade-in-item {
+  transition-delay: 0.9s;
+}
 
+/* project */
+.project h1 {
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  color: #333;
+  font-family: "Playwrite AU NSW", cursive;
+  font-weight: 700;
+  text-align: center;
+}
+.card-list {
+  display: flex;
+  padding: 3rem;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  justify-content: center;
+}
+
+.card-list::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.card-list::-webkit-scrollbar-thumb {
+  background: #201c29;
+  border-radius: 10px;
+  box-shadow: inset 2px 2px 2px hsla(0, 0%, 100%, 0.25),
+    inset -2px -2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.card-list::-webkit-scrollbar-track {
+  background: linear-gradient(90deg, #201c29, #201c29 1px, #17141d 0, #17141d);
+}
+
+.card {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  height: 350px;
+  width: 400px;
+  min-width: 250px;
+  padding: 1.5rem;
+}
+.card {
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: -1rem 0 3rem #828282;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-1rem);
+}
+
+.card:hover ~ .card {
+  transform: translateX(130px);
+}
+
+.card:not(:first-child) {
+  margin-left: -130px;
+}
+.card-author {
+  position: relative;
+  display: grid;
+  grid-template-columns: 75px 1fr;
+  align-items: center;
+}
+
+.author-avatar img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  filter: grayscale(50%);
+  margin: 16px 10px;
+}
+
+.half-circle {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 48px;
+  fill: none;
+  stroke: #ff8a00;
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+.card-header {
+  margin-bottom: auto;
+}
+
+.card-header p {
+  font-size: 14px;
+  margin: 0 0 1rem;
+  color: #7a7a8c;
+}
+
+.card-header h2 {
+  font-size: 20px;
+  margin: 0.25rem 0 auto;
+  cursor: pointer;
+  text-align: center;
+  font-family: "poppins", sans-serif;
+  font-weight: 700;
+}
+
+.card-header img {
+  padding: 10px;
+  display: block;
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.card-header h2:hover {
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  text-shadow: none;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.tags {
+  margin: 1rem 0 2rem;
+  padding: 0.5rem 0 1rem;
+  line-height: 2;
+  margin-bottom: 0;
+}
+
+.tags a {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.5rem;
+  color: #7a7a8c;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+  border: 3px solid #28242f;
+  border-radius: 2rem;
+  padding: 0.2rem 0.85rem 0.25rem;
+  position: relative;
+}
+
+.tags a:hover {
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  text-shadow: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-box-decoration-break: clone;
+  background-clip: text;
+  border-color: white;
+}
 
 /* Media Queries untuk Responsif */
 @media (max-width: 768px) {
-    .about-details {
-        flex-direction: column; /* Tumpuk gambar dan teks di layar kecil */
-    }
-    .about-text {
-        text-align: center; /* Rata tengah teks di layar kecil */
-    }
+  .about-details {
+    flex-direction: column; /* Tumpuk gambar dan teks di layar kecil */
+  }
+  .about-text {
+    text-align: center; /* Rata tengah teks di layar kecil */
+  }
 }
 
 /* Responsive */
