@@ -35,3 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(item);
     });
 });
+
+
+// Script untuk mendapatkan tahun sekarang secara otomatis
+  document.addEventListener('DOMContentLoaded', function() {
+    const currentYearSpan = document.getElementById('current-year');
+    if (currentYearSpan) {
+      currentYearSpan.textContent = new Date().getFullYear();
+    }
+  });
