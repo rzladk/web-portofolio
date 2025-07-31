@@ -14,6 +14,8 @@ body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background-color: #effffd;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* Navbar */
@@ -713,48 +715,4 @@ nav ul li a:hover {
 
 .copyright {
   font-size: 14px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Media Queries untuk Responsif */
-@media (max-width: 768px) {
-  .about-details {
-    flex-direction: column; /* Tumpuk gambar dan teks di layar kecil */
-  }
-  .about-text {
-    text-align: center; /* Rata tengah teks di layar kecil */
-  }
-}
-
-/* Responsive */
-@media screen and (max-width: 790px) {
-  .hamburger {
-    display: block;
-  }
-  nav ul {
-    display: none;
-  }
-  nav .logo h1 {
-    font-size: 1rem;
-  }
-  header h1 {
-    font-size: 1.5rem;
-  }
-  .about-details {
-    flex-direction: column; /* Tumpuk gambar dan teks di layar kecil */
-  }
-  .about-text {
-    text-align: center; /* Rata tengah teks di layar kecil */
-  }
 }
